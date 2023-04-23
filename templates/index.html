@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Forest Cover Type</title>
+  <style>
+    #main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+    }
+    button{
+        margin: auto;
+        display: block;
+        margin: 4px auto;
+    }
+    input {
+        margin: 2px;
+    }
+  </style>
+</head>
+
+<body>
+ <div id="main">
+	<h1>Cover Type Forecasting</h1>
+
+    <form action="/predict" method="post">
+        <div>
+    	    <input type="text" name="Elevation" placeholder="Elevation" required="required" />
+            <input type="text" name="Aspect" placeholder="Aspect" required="required" />
+		    <input type="text" name="Slope" placeholder="Slope" required="required" />
+        </div>
+        <div>
+            <input type="text" name="Horizontal_Distance_To_Hydrology" placeholder="Horizontal Distance To Hydrology" required="required" />
+            <input type="text" name="Vertical_Distance_To_Hydrology" placeholder="Vertical Distance To Hydrology" required="required" />
+            <input type="text" name="Horizontal_Distance_To_Roadways" placeholder="Horizontal Distance To Roadways" required="required" />
+        </div>
+        <div>
+            <input type="text" name="Hillshade_9am" placeholder="Hillshade 9am" required="required" />
+            <input type="text" name="Hillshade_Noon" placeholder="Hillshade Noon" required="required" />
+            <input type="text" name="Hillshade_3pm" placeholder="Hillshade 3pm" required="required" />
+            
+        </div>
+        <div>
+            <input type="text" name="Horizontal_Distance_To_Fire_Points" placeholder="Horizontal Distance To Fire Points" required="required" />
+            <input type="text" name="Wilderness_Area" placeholder="Wilderness Area Number" required="required" />
+            <input type="text" name="Soil_Type" placeholder="Soil Type Number" required="required" />
+        </div>
+        <div>
+            <button type="submit" >Predict</button>
+        </div>
+    </form>
+
+   <br>
+   <br>
+   <p>{{ heuristic_text }}</p>
+     <p>{{ ld_text }}</p>
+     <p>{{ svc_text }}</p>
+     <p>{{ tensor_text }}</p>
+
+ </div>
+</body>
+</html>
