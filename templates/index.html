@@ -45,8 +45,8 @@
         </div>
         <div>
             <input type="text" name="Horizontal_Distance_To_Fire_Points" placeholder="Horizontal Distance To Fire Points" required="required" />
-            <input type="text" name="Wilderness_Area" placeholder="Wilderness Area Number" required="required" />
-            <input type="text" name="Soil_Type" placeholder="Soil Type Number" required="required" />
+            <input type="number" name="Wilderness_Area" placeholder="Wilderness Area Number" required="required" min="1" max="4"/>
+            <input type="number" name="Soil_Type" placeholder="Soil Type Number" required="required" min="1" max="40"/>
         </div>
         <div>
             <button type="submit" >Predict</button>
@@ -55,10 +55,10 @@
 
    <br>
    <br>
-   <p>{{ heuristic_text }}</p>
-     <p>{{ ld_text }}</p>
-     <p>{{ svc_text }}</p>
-     <p>{{ tensor_text }}</p>
+   <pre>{{ heuristic_text|safe }}</pre>
+     <pre>{{ ld_text|safe }}</pre>
+     <pre>{{ svc_text|safe }}</pre>
+     <pre>{{ tensor_text|safe }}</pre>
 
  </div>
 </body>

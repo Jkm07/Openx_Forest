@@ -23,7 +23,7 @@ tensor = tf.keras.models.load_model('ModelNN/ModelNN')
 ml = Blueprint('ml', __name__)
 
 def getLabel(x):
-    return labels[x[0] - 1]
+    return "{0}({1})".format(labels[x[0] - 1], x[0])
 
 def getSolidType(x):
     out = [0] * 40
@@ -58,10 +58,10 @@ def predict():
     tensor_predict = np.argmax(tensor.predict(x), 1) + 1
 
     return render_template('index.html',
-                           heuristic_text='Heuristic {}'.format(getLabel(h_predict)),
-                           ld_text='Linear Discriminant {}'.format(getLabel(ld_predict)),
-                           svc_text='SVC {}'.format(getLabel(svc_predict)),
-                           tensor_text='Tensor {}'.format(getLabel(tensor_predict)))
+                           heuristic_text='Heuristic: <b>{}</b>'.format(getLabel(h_predict)),
+                           ld_text='Linear Discriminant: <b>{}</b>'.format(getLabel(ld_predict)),
+                           svc_text='SVC: <b>{}</b>'.format(getLabel(svc_predict)),
+                           tensor_text='Tensor: <b>{}</b>'.format(getLabel(tensor_predict)))
 
 if __name__ == '__main__':
     app = Flask(__name__)
